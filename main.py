@@ -36,6 +36,9 @@ class FlyingRunningMonster(RunningMonster, FlyingMonster):
     def move(self):
         print(f"{self.name} може бігати та літати.")
 
+    def use_charm(self):
+        self.charm.become_immortal(self)
+
 
 class Charm(ABC):
     @abstractmethod
@@ -84,3 +87,14 @@ class ImmortalityCharm(Charm):
         print(f"{monster.name} стає безсмертним.")
 
 
+monsters = []  # Оновлено на список
+monsters.append(RunningMonster("Монстер_1", "бігає", QuickRegenCharm()))
+monsters.append(FlyingMonster("Монстер_2", "літає", StrongStrikeCharm()))
+monsters.append(FlyingRunningMonster("Монстер_3", "бігає та літає", ImmortalityCharm()))
+monsters.append(FlyingMonster("Монстер_4", "літає", StrongStrikeCharm()))
+monsters.append(RunningMonster("Монстер_5", "бігає", QuickRegenCharm()))
+
+
+for monster in monsters:
+    monster.move()
+    monster.use_charm()
