@@ -87,7 +87,7 @@ class ImmortalityCharm(Charm):
         print(f"{monster.name} стає безсмертним.")
 
 
-monsters = []  # Оновлено на список
+monsters = []
 monsters.append(RunningMonster("Монстер_1", "бігає", QuickRegenCharm()))
 monsters.append(FlyingMonster("Монстер_2", "літає", StrongStrikeCharm()))
 monsters.append(FlyingRunningMonster("Монстер_3", "бігає та літає", ImmortalityCharm()))
